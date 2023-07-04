@@ -1,8 +1,28 @@
 .container {
-  display: grid;
+  // display: flex;
+  // flex-direction: column;
+  width: 600px;
+  // max-width: 800px;
 }
 
 .box {
-  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 10px;
   padding: 10px;
+}
+
+.image {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+}
+
+.name_wrapper {
+  width: 200px;
+  margin: 0 20px;
+}
+
+.delete__button{
+  margin-left: auto;
 }

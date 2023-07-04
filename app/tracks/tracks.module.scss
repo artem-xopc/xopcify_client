@@ -12,7 +12,7 @@
 
 .create_button__item {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  // grid-template-columns: repeat(2, 1fr); 
   align-items: start;
 }
 
@@ -24,4 +24,45 @@
   cursor: pointer;
   background: none;
   border: none;
+}
+
+.back__button {
+  width: 150px;
+  text-align: center;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 50px;
+}
+.back__button:hover {
+  color: #ffa703;
+  border-bottom: 1px solid #ffa703;
+}
+
+.track__container {
+  display: grid;
+  min-width: 200px;
+  max-width: 1024px;
+  justify-items: center;
+}
+
+.box__item {
+  display: flex;
+  justify-items: center;
+  margin-bottom: 50px;
+}
+
+.track__info {
+  flex-direction: column;
+  padding: 10px;
+}
+
+.image__item {
+  display: grid;
+  justify-items: end;
+  margin-right: 25px;
+  // grid-column: 1 / 4;
+}
+.image {
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
 }
