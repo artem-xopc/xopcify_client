@@ -66,3 +66,21 @@
   height: 200px;
   border-radius: 15px;
 }
+
+.button__comment {
+  margin-top: 15px;
+  background: transparent;
+  border: 1px solid #ffa703;
+  border-radius: 5px;
+  padding: 10px;
+
+  max-height: 40px;
+  cursor: pointer;
+}
+.button__comment:hover {
+  border: 1px solid #ffbc03;
+  color: #ffbc03;
+}
+.button__comment:active {
+  font-size: 13px;
+}
