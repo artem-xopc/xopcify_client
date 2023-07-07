@@ -1,11 +1,10 @@
 'use client';
 import { Metadata } from 'next';
 import tr from './tracks.module.scss';
-import { useRouter } from 'next/navigation';
 import { ITrack } from '@/types/track';
 import TrackList from '@/components/TrackList';
-
-import ava1 from '../assets/image/1.jpg';
+import Link from 'next/link';
+import { Grid, Paper, TextField, Typography } from '@mui/material';
 
 export const metadata: Metadata = {
   title: 'Xopcify | Tracks',
@@ -13,7 +12,6 @@ export const metadata: Metadata = {
 };
 
 export default function Tracks() {
-  const router = useRouter();
   const tracks: ITrack[] = [
     {
       _id: '1',
@@ -21,7 +19,8 @@ export default function Tracks() {
       artist: 'Bobby Richards',
       text: 'Текст песни',
       listens: 42,
-      picture: 'http://localhost:5000/picture/e60e2a6b-7329-4482-af38-5fba3906563f.jpg',
+      picture:
+        'https://sun9-79.userapi.com/impg/DYbCfZFAZDjUXxbd7oW--xc71VcGhY8Ussu3vg/CIB9YVh2nuo.jpg?size=800x800&quality=96&sign=aeccac3fd3ea015bbf062f7c5d7f2d07&type=album',
       audio: 'audio/6835743c-936b-4fbb-9e3f-c53133927ec5.mp3',
       comments: [],
     },
@@ -31,7 +30,8 @@ export default function Tracks() {
       artist: 'John Williams',
       text: 'Текст песни',
       listens: 42,
-      picture: 'http://localhost:5000/picture/2c9d876f-79af-4862-82fd-93f6960ae5c2.jpg',
+      picture:
+        'https://sun9-24.userapi.com/impg/b1wL_upy3mLZ0DMJ6F1x520zLJPf6a4wyH_VOA/MvhBYRHHX_k.jpg?size=800x450&quality=96&sign=5effb43eea771a4f78bd1f9446be7967&type=album',
       audio: 'http://localhost:5000/audio/10d4b2a6-2f5f-44ff-aeb9-9d71d7374b5a.mp3',
       comments: [],
     },
@@ -41,26 +41,27 @@ export default function Tracks() {
       artist: 'Artem Xopc',
       text: 'Текст песни',
       listens: 42,
-      picture: '',
+      picture:
+        'https://sun9-21.userapi.com/impg/7Yt5H81ZE4j4BNEzcm69rBAVCHVWXbtlOEeCoQ/hnekp8fHUf8.jpg?size=640x640&quality=95&sign=64d229839be6e17caa48e2004e4c7c10&type=album',
       audio: '',
       comments: [],
     },
   ];
   return (
-    <div>
-      <div className={tr.container}>
+    <div className={tr.container}>
+      <div className={tr.track_list_containter}>
         <div className={tr.box}>
           <div className={tr.tracks__title}>
             <h3>Track list</h3>
           </div>
-          <div className={tr.create_button__item}>
-            <div></div>
-            <button className={tr.create__button} onClick={() => router.push('/tracks/create')}>
-              Create
-            </button>
-          </div>
           <TrackList tracks={tracks} />
         </div>
+      </div>
+
+      <div className={tr.create_button__item}>
+        <Link href={'tracks/create'}>
+          <button className={tr.create__button}>Add new track</button>
+        </Link>
       </div>
     </div>
   );

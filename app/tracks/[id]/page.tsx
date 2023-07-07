@@ -1,10 +1,12 @@
 'use client';
 
-import { ITrack } from '@/types/track';
+import React from 'react';
+import { IComment, ITrack } from '@/types/track';
 import Link from 'next/link';
 import styles from '../tracks.module.scss';
-import Container from '@mui/material/Container';
-import { Box, ButtonBase, Grid, Paper, TextField, Typography } from '@mui/material';
+import { Container, Box, ButtonBase, Grid, Paper, TextField, Typography } from '@mui/material';
+import CommentItem from '@/components/Comments';
+import CommentList from '@/components/CommentLists';
 
 const TrackPage = () => {
   const track: ITrack = {
@@ -30,29 +32,22 @@ const TrackPage = () => {
     Laudantium accusantium odio harum quaerat, ad sunt itaque reprehenderit laborum nisi, quae dolore quia quisquam, ullam architecto magni commodi atque delectus doloribus ipsum saepe voluptatibus dicta iusto natus. Aspernatur, fugiat.
     Quibusdam exercitationem neque repellendus omnis quasi sint et aliquam possimus voluptas tempora nobis in doloribus inventore porro ea ratione suscipit recusandae praesentium fuga facere, earum fugiat. Voluptatem quo nulla facere?
     Maxime, explicabo. Voluptatem id eveniet doloremque voluptatum culpa voluptates hic fugit autem doloribus eius. Expedita vero perspiciatis et corporis voluptatum quis placeat temporibus ut, iste earum nam, repellendus excepturi odio?
-    Provident cum fuga quisquam aliquam cupiditate non explicabo ipsam velit perferendis vel, libero beatae minus quibusdam facere maiores qui ipsa repellendus dicta enim maxime iste atque minima. Error, facere at.
-    Deleniti quasi architecto aliquid exercitationem, inventore commodi cumque soluta. Soluta facere ex laudantium laboriosam in recusandae hic voluptates reprehenderit, consectetur temporibus, accusamus nisi quo ipsum, earum eaque doloribus minima doloremque!
-    Repudiandae deleniti totam ea. Voluptatum velit delectus eos ea optio est tempore esse magni. Quibusdam sint reiciendis illo a laudantium expedita nesciunt veniam numquam recusandae tempore excepturi dolore, quo eius.
-    Fugit sed saepe corporis repudiandae quibusdam neque libero quas magnam aperiam, ut recusandae minima molestiae quisquam laudantium sapiente natus, aspernatur temporibus, nam alias cupiditate itaque nulla quae delectus veritatis. Fugit.
-    Eos obcaecati molestiae dolorum placeat dolorem a at, accusantium, deserunt aut praesentium magni? Saepe facilis incidunt minima molestias possimus, ducimus, consequuntur iure itaque at earum ipsum soluta, corporis iste eaque.
-    Illo officiis minus saepe pariatur ipsa fuga natus eos eligendi corporis suscipit reprehenderit aut ipsum nisi tempora praesentium vel id quae, fugiat incidunt magnam veniam numquam facere recusandae? Consequatur, sequi!
-    Odio repellendus ea iure odit, mollitia eveniet sit a fugiat! Dignissimos vitae nam aliquam tenetur excepturi, velit ipsa illum laborum provident eaque, exercitationem expedita et quidem voluptates quaerat sunt. Ratione!
-    Minus pariatur quidem placeat explicabo autem amet labore? Nostrum, ad odit deserunt suscipit harum facilis quibusdam, quis praesentium et rem quia! Laboriosam, necessitatibus explicabo similique ipsum doloribus velit aliquam optio?
-    Voluptatem optio eligendi perspiciatis commodi quisquam. Quidem similique aspernatur facilis ullam. Pariatur a optio nulla quia at, placeat rem asperiores, perferendis est temporibus fugiat vitae eius qui, maiores modi. Atque?
-    Neque vitae nobis aperiam temporibus dolore laborum cumque sunt quis doloribus esse? Optio, quibusdam dolorem, nobis maxime omnis culpa neque nisi eveniet quas doloribus voluptatum animi, ducimus iusto sit. Aspernatur?
-    Deleniti delectus tempore autem, perspiciatis praesentium dolores sunt? Consequuntur fugiat sequi quaerat dignissimos facilis nisi non laborum illo! Dicta quidem quis numquam nobis distinctio unde ut temporibus nulla ad consequatur.`,
+    Provident cum fuga quisquam aliquam cupiditate non explicabo ipsam velit perferendis vel, libero beatae minus quibusdam facere maiores qui ipsa repellendus dicta enim maxime iste atque minima. Error, facere at.`,
     listens: 42,
-    picture: 'http://localhost:5000/picture/e60e2a6b-7329-4482-af38-5fba3906563f.jpg',
+    picture:
+      'https://sun9-79.userapi.com/impg/DYbCfZFAZDjUXxbd7oW--xc71VcGhY8Ussu3vg/CIB9YVh2nuo.jpg?size=800x800&quality=96&sign=aeccac3fd3ea015bbf062f7c5d7f2d07&type=album',
     audio: 'http://localhost:5000/audio/6835743c-936b-4fbb-9e3f-c53133927ec5.mp3',
     comments: [],
   };
+
+  // const [hasComments, setComments] = React.useState<comments[] | null>(null)
 
   return (
     <Paper
       sx={{
         p: 2,
         margin: 'auto',
-        minWidth: 750,
+        minWidth: 250,
         maxWidth: 1000,
         flexGrow: 1,
         backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#1A2027' : '#fff'),
@@ -87,9 +82,9 @@ const TrackPage = () => {
       <Grid item xs={12} sm container>
         <Grid item xs container direction="column" spacing={2}>
           <Grid item xs>
-            <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start">
+            <Grid container direction="column" justifyContent="center" alignItems="center">
               <Typography gutterBottom variant="subtitle1" component="div">
-                Lyrics
+                <h4>Lyrics</h4>
               </Typography>
               <Typography variant="body1">{track.text}</Typography>
             </Grid>
@@ -108,36 +103,12 @@ const TrackPage = () => {
           </Grid>
         </Grid>
       </Grid>
+
+      <Grid item>
+        <CommentList comments={track.comments} />
+      </Grid>
     </Paper>
   );
-  //   <Container className={styles.track__container}>
-  //     <Grid>
-  //       <Link href={'/tracks'}>
-  //         <h3 className={styles.back__button}>Back to Tracks</h3>
-  //       </Link>
-  //     </Grid>
-  //     <Box className={styles.box__item}>
-  //       <Grid item xs={8} className={styles.image__item}>
-  //         <img src={track.picture} className={styles.image} />
-  //       </Grid>
-  //       <Grid className={styles.track__info}>
-  //         <h4 style={{ marginBottom: '5px' }}>
-  //           {track.name} - {track.artist}
-  //         </h4>
-  //         <h6>Auditions - {track.listens}</h6>
-  //       </Grid>
-  //     </Box>
-  //     <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start">
-  //       <Grid className="text_title">Lyrics</Grid>
-  //       <Grid>{track.text}</Grid>
-  //     </Grid>
-  //     <Grid container>
-  //       <h3>Comment this track</h3>
-  //       <TextField label="Enter your name" fullWidth />
-  //       <TextField label="Comment" fullWidth multiline rows={6} />
-  //     </Grid>
-  //   </Container>
-  // );
 };
 
 export default TrackPage;
