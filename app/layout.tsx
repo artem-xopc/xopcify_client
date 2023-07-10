@@ -4,6 +4,7 @@ import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import Navbar from '../components/Navbar';
 import './globals.css';
 import { Inter } from 'next/font/google';
+import Player from '@/components/Player';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <CssBaseline />
           <Navbar />
           <main>{children}</main>
+          <Player />
         </ThemeProvider>
       </body>
     </html>

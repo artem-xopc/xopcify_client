@@ -18,7 +18,7 @@ const TrackItem: React.FC<TrackItemProps> = ({ track, active = false }) => {
   const router = useRouter();
   return (
     <div className={ti.container} onClick={() => router.push('/tracks/' + track._id)}>
-      <div className={ti.box}>
+      <div className={ti.box__trackitem}>
         <IconButton color="warning" size="large" onClick={(e) => e.stopPropagation()}>
           {active ? <PauseCircleIcon /> : <PlayCircleIcon />}
         </IconButton>

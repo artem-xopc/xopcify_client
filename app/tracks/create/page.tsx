@@ -1,11 +1,14 @@
 'use client';
 
+import FileUpload from '@/components/FileUpload';
 import StepWrapper from '@/components/StepWrapper';
-import { Grid, TextField } from '@mui/material';
+import { Grid, TextField, Button } from '@mui/material';
 import React from 'react';
 
 const CreateTrack = () => {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [image, setImage] = React.useState(null);
+  const [audio, setAudio] = React.useState(null);
 
   const next = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -37,12 +40,18 @@ const CreateTrack = () => {
             <div>
               <h4>Step 2</h4>
               <h5>Select track cover art</h5>
+              <FileUpload setFile={setImage} accept="image/*">
+                <Button>Upload track cover</Button>
+              </FileUpload>
             </div>
           )}
           {activeStep === 2 && (
             <div>
               <h4>Step 3</h4>
               <h5>Add track</h5>
+              <FileUpload setFile={setAudio} accept="audio/*">
+                <Button>Upload audio</Button>
+              </FileUpload>
             </div>
           )}
         </StepWrapper>

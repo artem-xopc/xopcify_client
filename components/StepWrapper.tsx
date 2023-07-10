@@ -28,9 +28,6 @@ const StepWrapper: React.FC<StepWrapperProps> = ({
 }) => {
   return (
     <Box sx={{ minWidth: '200px', maxWidth: '1100px' }}>
-      <div>
-        <h3>Create | Add new track</h3>
-      </div>
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps: { completed?: boolean } = {};
@@ -59,7 +56,6 @@ const StepWrapper: React.FC<StepWrapperProps> = ({
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Button color="inherit" disabled={activeStep === 0} onClick={back} sx={{ mr: 1 }}>
               Back

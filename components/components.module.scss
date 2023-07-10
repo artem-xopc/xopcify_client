@@ -1,15 +1,20 @@
 .container {
-  // display: flex;
-  // flex-direction: column;
-  width: 600px;
+  display: flex;
+  // flex-wrap: wrap;
   // max-width: 800px;
 }
 
 .box {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   margin-right: 10px;
   padding: 10px;
+}
+
+.box__trackitem {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 .image {
@@ -24,5 +29,36 @@
 }
 
 .delete__button{
+  height: 25px;
+  margin-left: auto;
+}
+
+.box__player {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  padding: 10px;
+  min-height: 50px;
+  background-color: #272727;
+}
+
+.image__player {
+  margin-left: 20px;
+  max-height: 50px;
+  border-radius: 10px;
+}
+
+.artist {
+  color: #a8a6a6;
+}
+
+.song_slider {
+  min-width: 150px;
+}
+
+.volume {
   margin-left: auto;
 }
